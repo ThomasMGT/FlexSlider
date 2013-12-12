@@ -1,6 +1,9 @@
 # FlexSlider 2
 http://www.woothemes.com/flexslider/ - Copyright (c) 2012 WooThemes
 
+RTL support added by Layal at rtl-this.com.
+Post: http://rtl-this.com/tutorial/jquery-plugin-flexslider-now-rtl-support
+
 ## Updates
 
 ** Version 2.2.0**
@@ -47,6 +50,7 @@ Two new methods are available for adding/removing slides, `slider.addSlide()` an
 - [Carousel with min and max ranges](http://flexslider.woothemes.com/carousel-min-max.html)
 - [Video with Vimeo API](http://flexslider.woothemes.com/video.html)
 - [Video with Wistia API](http://flexslider.woothemes.com/video-wistia.html)
+- [Basic Slider - RTL](http://rtl-this.com/sites/default/files/demos/FlexSlider/demo/basic-rtl.html)
 
 
 ## Properties
@@ -142,3 +146,6 @@ Description to be added.
 
 ### allowOneSlide: *{new}*
 Boolean. Whether or not you'd like FlexSlider to initialize as usual if only one slide is present.
+
+### rtl: *{new(added by rtl-this.com)}*
+Boolean. Whether or not you'd like to enable the RTL(right-to-left) mode.
