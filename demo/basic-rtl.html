@@ -12,13 +12,6 @@
 	<!-- Modernizr -->
   <script src="js/modernizr.js"></script>
 
-    <!-- jQuery -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
-
-  <!-- Wistia iframe API -->
-  <script src="http://fast.wistia.com/static/iframe-api-v1.js"></script>
-
 </head>
 <body class="loading">
 
@@ -33,24 +26,25 @@
       <h3 class="nav-header">Other Examples</h3>
       <nav>
         <ul>
-          <li><a href="index.html">Basic Slider</a></li>
+          <li><a href="demo">Basic Slider</a></li>
           <li><a href="thumbnail-controlnav.html">Slider w/thumbnail controlNav pattern</a></li>
           <li><a href="thumbnail-slider.html">Slider w/thumbnail slider</a></li>
           <li><a href="basic-carousel.html">Basic Carousel</a></li>
           <li><a href="carousel-min-max.html">Carousel with min and max ranges</a></li>
           <li><a href="dynamic-carousel-min-max.html">Carousel with dynamic min/max ranges</a></li>
           <li><a href="video.html">Video & the api (vimeo)</a></li>
-          <li class="active"><a href="video-wistia.html">Video & the api (wistia)</a></li>
-		  <li><a href="basic-rtl.html">Basic Slider - RTL</a></li>
+          <li><a href="video-wistia.html">Video & the api (wistia)</a></li>
+		  <li class="active"><a href="basic-rtl.html">Basic Slider - RTL</a></li>
         </ul>
       </nav>
     </header>
-    <div id="main" role="main">
+
+	<div id="main" role="main">
       <section class="slider">
         <div class="flexslider">
           <ul class="slides">
             <li>
-              <iframe id="player_1" src="http://fast.wistia.com/embed/iframe/t4yniozocs?controlsVisibleOnLoad=true&amp;playerColor=474745&amp;version=v1&amp;videoHeight=366&amp;videoWidth=650&amp;volumeControl=true&videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="650" height="366"></iframe>
+  	    	    <img src="images/kitchen_adventurer_cheesecake_brownie.jpg" />
   	    		</li>
   	    		<li>
   	    	    <img src="images/kitchen_adventurer_lemon.jpg" />
@@ -66,7 +60,7 @@
       </section>
       <aside>
         <div class="cf">
-          <h3>Video</h3>
+          <h3>Basic Slider - RTL</h3>
           <ul class="toggle cf">
             <li class="js"><a href="#view-js">JS</a></li>
             <li class="html"><a href="#view-html">HTML</a></li>
@@ -75,34 +69,12 @@
         <div id="view-js" class="code">
           <pre class="brush: js; toolbar: false; gutter: false;">
             // Can also be used with $(document).ready()
-            $(window).load(function(){
-            // Wistia handler.
-            wistiaEmbed = document.getElementById( 'player_1' ).wistiaApi;
-
-            // Call fitVid before FlexSlider initializes, so the proper initial height can be retrieved.
-            $( '.flexslider' )
-              .fitVids()
-              .flexslider({
-                animation: 'slide',
-                useCSS: false,
-                animationLoop: false,
-                smoothHeight: true,
-                start: function( slider ) {
-                  $('body').removeClass( 'loading' );
-                },
-                before: function ( slider ) {
-                  wistiaEmbed.pause();
-                }
+            $(window).load(function() {
+              $('.flexslider').flexslider({
+                animation: "slide",
+                rtl: true
+              });
             });
-
-            wistiaEmbed.bind( 'play', function() {
-              jQuery( '.flexslider' ).flexslider( 'pause' );
-            });
-
-            wistiaEmbed.bind( 'end', function() {
-              jQuery( '.flexslider' ).flexslider( 'play' );
-            });
-          });
           </pre>
         </div>
         <div id="view-html" class="code">
@@ -111,7 +83,7 @@
             &lt;div class="flexslider">
               &lt;ul class="slides">
                 &lt;li>
-                  &lt;iframe id="player_1" src="http://fast.wistia.com/embed/iframe/t4yniozocs?controlsVisibleOnLoad=true&amp;playerColor=474745&amp;version=v1&amp;videoHeight=366&amp;videoWidth=650&amp;volumeControl=true&videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="650" height="366"&gt;&lt;/iframe&gt;
+                  &lt;img src="slide1.jpg" />
                 &lt;/li>
                 &lt;li>
                   &lt;img src="slide2.jpg" />
@@ -131,6 +103,10 @@
 
   </div>
 
+  <!-- jQuery -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
+
   <!-- FlexSlider -->
   <script defer src="../jquery.flexslider.js"></script>
 
@@ -139,43 +115,26 @@
       SyntaxHighlighter.all();
     });
     $(window).load(function(){
-      // Wistia handler.
-      wistiaEmbed = document.getElementById( 'player_1' ).wistiaApi;
-
-      // Call fitVid before FlexSlider initializes, so the proper initial height can be retrieved.
-      $( '.flexslider' )
-        .fitVids()
-        .flexslider({
-          animation: 'slide',
-          useCSS: false,
-          animationLoop: false,
-          smoothHeight: true,
-          start: function( slider ) {
-            $('body').removeClass( 'loading' );
-          },
-          before: function ( slider ) {
-            wistiaEmbed.pause();
-          }
-      });
-
-      wistiaEmbed.bind( 'play', function() {
-        jQuery( '.flexslider' ).flexslider( 'pause' );
-      });
-
-      wistiaEmbed.bind( 'end', function() {
-        jQuery( '.flexslider' ).flexslider( 'play' );
+      $('.flexslider').flexslider({
+        animation: "slide",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+		,rtl:true
       });
     });
   </script>
 
-   <!-- Syntax Highlighter -->
-	<script type="text/javascript" src="js/shCore.js"></script>
-	<script type="text/javascript" src="js/shBrushXml.js"></script>
-	<script type="text/javascript" src="js/shBrushJScript.js"></script>
+
+  <!-- Syntax Highlighter -->
+  <script type="text/javascript" src="js/shCore.js"></script>
+  <script type="text/javascript" src="js/shBrushXml.js"></script>
+  <script type="text/javascript" src="js/shBrushJScript.js"></script>
 
   <!-- Optional FlexSlider Additions -->
-	<script src="js/jquery.fitvid.js"></script>
-	<script src="js/demo.js"></script>
+  <script src="js/jquery.easing.js"></script>
+  <script src="js/jquery.mousewheel.js"></script>
+  <script defer src="js/demo.js"></script>
 
 </body>
 </html>
