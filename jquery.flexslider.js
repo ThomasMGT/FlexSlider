@@ -101,8 +101,15 @@
           $(document).bind('keyup', function(event) {
             var keycode = event.keyCode;
             if (!slider.animating && (keycode === 39 || keycode === 37)) {
-              var target = (keycode === 39) ? slider.getTarget('next') :
-                           (keycode === 37) ? slider.getTarget('prev') : false;
+            var target =(slider.vars.rtl? 
+                                    ((keycode === 37) ? slider.getTarget('next') :
+                                     (keycode === 39) ? slider.getTarget('prev') : false)
+                                    :
+                                    ((keycode === 39) ? slider.getTarget('next') :
+                                     (keycode === 37) ? slider.getTarget('prev') : false)
+                                    )
+                                    ;
+             
               slider.flexAnimate(target, slider.vars.pauseOnAction);
             }
           });
